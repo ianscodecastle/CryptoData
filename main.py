@@ -1,3 +1,6 @@
+from requests import Request, Session
+from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
+import json
 
 api_domain = 'pro-api.coinmarketcap.com'
 my_key = '197d8494-cdfe-4ca3-aece-1aa263bed70b'
