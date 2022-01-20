@@ -3,9 +3,9 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
 my_key = '197d8494-cdfe-4ca3-aece-1aa263bed70b'
-test_key = 'b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c'
+sandbox_key = 'b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c'
 
-url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 parameters = {
   'start':'1',
   'limit':'3',
@@ -13,7 +13,7 @@ parameters = {
 }
 headers = {
   'Accepts': 'application/json',
-  'X-CMC_PRO_API_KEY': my_key,
+  'X-CMC_PRO_API_KEY': sandbox_key,
 }
 
 session = Session()
