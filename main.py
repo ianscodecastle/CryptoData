@@ -2,9 +2,28 @@ from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
-api_domain = 'pro-api.coinmarketcap.com'
 my_key = '197d8494-cdfe-4ca3-aece-1aa263bed70b'
 
-api_sandbox = 'sandbox-api.coinmarketcap.com'
-test_key = 'b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c'
+url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+parameters = {
+  'start':'1',
+  'limit':'10',
+  'slug':'chainlink',
+  #'slug':'ethereum',
+  #'slug':'cardano',
+  'convert':'USD'
+}
+headers = {
+  'Accepts': 'application/json',
+  'X-CMC_PRO_API_KEY': my_key,
+}
 
+session = Session()
+session.headers.update(headers)
+
+try:
+  response = session.get(url, params=parameters)
+  data = json.loads(response.text)
+  print(data)
+except (ConnectionError, Timeout, TooManyRedirects) as e:
+  print(e)
