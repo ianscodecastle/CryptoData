@@ -5,10 +5,11 @@ import json
 my_key = '197d8494-cdfe-4ca3-aece-1aa263bed70b'
 sandbox_key = 'b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c'
 
-url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 parameters = {
-  'start':'1',
-  'limit':'3',
+  #'start':'1',
+  'id':'1',
+  #'limit':'3',
   'convert':'USD'
 }
 headers = {
