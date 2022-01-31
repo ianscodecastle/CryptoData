@@ -12,19 +12,19 @@ gainers_losers_trending = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurren
 price_preformance = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/price-performance-stats/latest'
 
 
-# url = latest_listings
-# parameters = {
-#   'start':'1',
-#   'limit':'3',
-#   'convert':'USD'
-# }
-
-url = latest_quotes
+url = latest_listings
 parameters = {
-  'id':'1',
-  'aux':'btc_dominance',
+  'start':'1',
+  'limit':'3',
   'convert':'USD'
 }
+
+# url = latest_quotes
+# parameters = {
+#   'id':'1',
+#   'aux':'btc_dominance',
+#   'convert':'USD'
+# }
 
 
 
