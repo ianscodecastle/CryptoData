@@ -1,5 +1,5 @@
-# Progress Report 1 
-## (1/28/22)
+
+# Progress Report 1 (1/28/22)
 
 The goal of my project is to create a web dashboard that displays the current price, market cap,
 and percentage gains for cryptocurrencies. I plan to accomplish this through data engineering. Using Python, I will connect to a data source and extract the raw data on the cryptocurrencies. Next, I will transform the data and load it onto Amazon AWS. From there, I will be able to place the transformed data on my web dashboard.
