@@ -1,4 +1,4 @@
-Initial Project Idea (1/14/22)
+#Initial Project Idea (1/14/22)
 
 For my project, I will be using data engineering to create a dashboard that will let users
 see statistics for cryptocurrencies they are interested in. I want to use a scheduling system to refresh the data and automatically keep the stats on the dashboard up-to-date. I think this will be helpful for investors who want to see statistical breakdowns of cryptocurrencies all in one centralized location. I am attempting this project because I work in data engineering and want to do more projects related to my field.
