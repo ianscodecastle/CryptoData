@@ -1,3 +1,4 @@
+# Imports
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
@@ -19,7 +20,6 @@ parameters = {
   'limit':'3',
   'convert':'USD'
 }
-
 
 headers = {
   'Accepts': 'application/json',
