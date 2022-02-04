@@ -1,7 +1,5 @@
+
 # Progress Report 2 (2/04/22)
 
-_This week:_
-- continued work in Git, added docs folder
-- tested more Api's
-- wrote more code using CoinMarketCap's API, read more of the docs
-- began work on architecture diagram using drawio
+This week, I continued researching data sources to use in my project and wrote code to connect to a few different APIs. I am now almost certain that CoinMarketCap is the data source I will be moving forward with in this project. Additonally, I was able to meet with Max Latterman and discuss ways we can potentially collaborate on our projects. Since both of our projects involve crytocurrency and blockchain technology, we thought we could both benefit from sharing resources with one another and working together on some aspects of the project. Lastly, I started using lucidchart to make an architecture diagram. This diagram will be a viusal aid to show what tech my project uses. 
+My next steps are to access more of the API endpoints on CoinMarketCap and start working on parsing the raw data. This will help me get an idea of how to transform this data so it can used in a dashboard. 
