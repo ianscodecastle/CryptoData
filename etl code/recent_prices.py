@@ -14,9 +14,8 @@ latest_quotes = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/
 # Get quote
 url = latest_quotes
 parameters = {
-  'slug': 'bitcoin',  
+  'slug': 'bitcoin,ethereum',  
   'convert': 'USD',
-  'aux': 'platform'
 }
 
 headers = {
