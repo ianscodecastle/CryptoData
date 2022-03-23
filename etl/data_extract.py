@@ -25,8 +25,9 @@ session.headers.update(headers)
 try:
   response = session.get(url, params=parameters)
   data = json.loads(response.text)
-  df = pd.DataFrame.from_records(data)
-  #print(df)
+  #df = pd.DataFrame.from_records(data)
+  df = pd.json_normalize(data)
+  print(df)
   #pp.pprint(df.loc['bitcoin','data'])
   #df.to_csv('cmc_dataframe.csv', index=False)
 
