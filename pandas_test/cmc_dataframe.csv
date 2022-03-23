@@ -1,8 +1,0 @@
-data,status
-"{'id': 4403, 'name': 'cgjzhhwd9eh', 'symbol': 'yr0qmk5lmja', 'slug': 'bitcoin', 'is_active': 4924, 'is_fiat': None, 'circulating_supply': 3370, 'total_supply': 8043, 'max_supply': 1833, 'date_added': '2022-03-23T15:56:55.794Z', 'num_market_pairs': 4650, 'cmc_rank': 2513, 'last_updated': '2022-03-23T15:56:55.794Z', 'tags': ['vph038bebfr', 'g9ali7s38qn', 'n5laiymq1l', 'vrsk5otssd9', 'gcw08fjrlv', '5z48ld7m3ph', 'rxb6s5081pi', 'wdjlzejvgcm', 'pmeete29q7o', 'l4wnlecm0cj'], 'platform': None, 'self_reported_circulating_supply': None, 'self_reported_market_cap': None, 'quote': {'USD': {'price': 0.10981395672289374, 'volume_24h': 0.6771438303561905, 'volume_change_24h': 0.923531933297042, 'percent_change_1h': 0.9870767283809212, 'percent_change_24h': 0.6758713414173407, 'percent_change_7d': 0.5588762604861819, 'percent_change_30d': 0.926405645556986, 'market_cap': 0.42876578121241304, 'market_cap_dominance': 6845, 'fully_diluted_market_cap': 0.9828578500920413, 'last_updated': '2022-03-23T15:56:55.795Z'}}}",
-,2022-03-23T15:56:55.795Z
-,0
-,
-,1
-,1
-,
