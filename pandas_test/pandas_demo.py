@@ -32,7 +32,7 @@ try:
   pd.set_option("display.max_rows", None)
   pd.set_option("display.max_columns", None)
   df = pd.DataFrame.from_records(data)
-  print(df)
+  print(df['data'])
 
 except (ConnectionError, Timeout, TooManyRedirects) as e:
   print(e)
