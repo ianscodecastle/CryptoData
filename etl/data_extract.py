@@ -8,7 +8,7 @@ import config
 
 
 # Show latest listings
-url = config.latest_listings
+url = config.latest_quotes
 parameters = {
   'slug':'bitcoin',
   'convert':'USD'
@@ -26,7 +26,8 @@ try:
   response = session.get(url, params=parameters)
   data = json.loads(response.text)
   df = pd.DataFrame.from_records(data)
-  pp.pprint(df.loc['bitcoin','data'])
+  #print(df)
+  #pp.pprint(df.loc['bitcoin','data'])
   #df.to_csv('cmc_dataframe.csv', index=False)
 
 except (ConnectionError, Timeout, TooManyRedirects) as e:
