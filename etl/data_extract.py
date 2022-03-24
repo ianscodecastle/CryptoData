@@ -45,9 +45,11 @@ try:
   df_view1 = df[['slug', 'quote.USD.price']] # all rows, specific columns
   print(df_view1)
 
-  df_btc = df.loc[['bitcoin'], ['circulating_supply','quote.USD.price']]
-  df_eth = df.loc[['ethereum'],['circulating_supply','quote.USD.price']]
-  df_link = df.loc[['chainlink'],['circulating_supply','quote.USD.price']]
+  core_info = ['quote.USD.price','quote.USD.percent_change_24h','quote.USD.percent_change_7d','quote.USD.market_cap']
+
+  df_btc = df.loc[['bitcoin'], core_info]
+  df_eth = df.loc[['ethereum'], core_info]
+  df_link = df.loc[['chainlink'], core_info]
 
   df_chart1 = df.loc[:, ['quote.USD.volume_change_24h']]
   
