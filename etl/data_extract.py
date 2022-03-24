@@ -51,7 +51,6 @@ try:
 
   df_chart1 = df.loc[:, ['quote.USD.volume_change_24h']]
   
-
   # Load to destination
   #df.to_csv('cmc_dataframe.csv', index=False)
 
