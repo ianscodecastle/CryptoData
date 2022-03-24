@@ -35,23 +35,22 @@ try:
   df = pd.json_normalize(list(data.values()))
   df.index = data.keys()
 
-  df.rename(columns={'name': 'NAME'}, inplace=True)
-
   # Display dataframe
   #display(df)
+  df.rename(columns={'name': 'NAME', 'quote.USD.price':'Price (USD)','quote.USD.percent_change_24h':'24h Change (%)', 'quote.USD.percent_change_7d':'7d Change (%)', 'quote.USD.market_cap':'Market Cap (USD)'}, inplace=True)
   print(df)
 
   # Create views
-  df_view1 = df[['slug', 'quote.USD.price']] # all rows, specific columns
+  df_view1 = df[['slug', 'Price (USD)']] # all rows, specific columns
   print(df_view1)
 
-  core_info = ['quote.USD.price','quote.USD.percent_change_24h','quote.USD.percent_change_7d','quote.USD.market_cap']
+  core_info = ['Price (USD)','24h Change (%)','7d Change (%)','Market Cap (USD)']
 
   df_btc = df.loc[['bitcoin'], core_info]
   df_eth = df.loc[['ethereum'], core_info]
   df_link = df.loc[['chainlink'], core_info]
 
-  df_chart1 = df.loc[:, ['quote.USD.volume_change_24h']]
+  df_chart1 = df.loc[:, ['24h Change (%)']]
   
   # Load to destination
   #df.to_csv('cmc_dataframe.csv', index=False)
