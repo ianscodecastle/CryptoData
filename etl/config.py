@@ -6,7 +6,7 @@ sandbox_key = 'b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c'
 
 
 # Sandbox URLs 
-latest_listings = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
-latest_quotes = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
-gainers_losers_trending = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/trending/gainers-losers'
-price_preformance = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/price-performance-stats/latest'
+sandbox_latest_listings = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+sandbox_latest_quotes = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
+sandbox_gainers_losers_trending = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/trending/gainers-losers'
+sandbox_price_preformance = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/price-performance-stats/latest'

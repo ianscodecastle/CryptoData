@@ -10,10 +10,10 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.max_colwidth', 50)
 
 # Show latest listings
-url = config.latest_quotes
+url = config.sandbox_latest_quotes
 parameters = {
-  'slug':'bitcoin,ethereum,chainlink,polkadot,cardano',
-  #'convert':'USD'
+  'slug':'bitcoin,ethereum,chainlink',
+  'convert':'USD'
 }
 
 headers = {
@@ -33,7 +33,7 @@ try:
   # Make data frame
   df = pd.DataFrame(data).T
   df = pd.json_normalize(list(data.values()))
-  #df.index = data.keys()
+  df.index = data.keys()
 
   df.rename(columns={'name': 'NAME'}, inplace=True)
 
@@ -41,9 +41,16 @@ try:
   #display(df)
   print(df)
 
-  # Create views for specific columns
-  df_view1 = df[['slug', 'quote.USD.price']]
+  # Create views
+  df_view1 = df[['slug', 'quote.USD.price']] # all rows, specific columns
   print(df_view1)
+
+  df_btc = df.loc[['bitcoin'], ['circulating_supply','quote.USD.price']]
+  df_eth = df.loc[['ethereum'],['circulating_supply','quote.USD.price']]
+  df_link = df.loc[['chainlink'],['circulating_supply','quote.USD.price']]
+
+  df_chart1 = df.loc[:, ['quote.USD.volume_change_24h']]
+  
 
   # Load to destination
   #df.to_csv('cmc_dataframe.csv', index=False)
