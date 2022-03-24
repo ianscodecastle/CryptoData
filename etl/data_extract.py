@@ -6,12 +6,14 @@ import pandas as pd
 import pprint as pp
 import config
 
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_colwidth', 50)
 
 # Show latest listings
 url = config.latest_quotes
 parameters = {
-  'slug':'bitcoin',
-  'convert':'USD'
+  'slug':'bitcoin,ethereum,chainlink,polkadot,cardano',
+  #'convert':'USD'
 }
 
 headers = {
@@ -24,11 +26,19 @@ session.headers.update(headers)
 
 try:
   response = session.get(url, params=parameters)
-  data = json.loads(response.text)
-  #df = pd.DataFrame.from_records(data)
-  df = pd.json_normalize(data)
-  print(df)
-  #pp.pprint(df.loc['bitcoin','data'])
+  
+  # Specify which data from API response to store
+  data = json.loads(response.text)['data']
+
+  # Make data frame
+  df = pd.DataFrame(data).T
+  df = pd.json_normalize(list(data.values()))
+  #df.index = data.keys()
+
+  # Display dataframe
+  #display(df)
+
+  # Load to destination
   #df.to_csv('cmc_dataframe.csv', index=False)
 
 except (ConnectionError, Timeout, TooManyRedirects) as e:
