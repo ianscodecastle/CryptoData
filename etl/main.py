@@ -5,7 +5,7 @@ import data_extract
 from urllib.request import urlopen
 
 st.title('Crypto Prices Today')
-st.header('Coins')
+st.header('My Coins')
 
 st.write('Bitcoin ($)')
 st.table(data_extract.df_btc)
