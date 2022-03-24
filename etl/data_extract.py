@@ -35,8 +35,15 @@ try:
   df = pd.json_normalize(list(data.values()))
   #df.index = data.keys()
 
+  df.rename(columns={'name': 'NAME'}, inplace=True)
+
   # Display dataframe
   #display(df)
+  print(df)
+
+  # Create views for specific columns
+  df_view1 = df[['slug', 'quote.USD.price']]
+  print(df_view1)
 
   # Load to destination
   #df.to_csv('cmc_dataframe.csv', index=False)
