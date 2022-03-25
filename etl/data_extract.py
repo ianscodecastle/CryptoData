@@ -12,7 +12,7 @@ pd.set_option('display.max_colwidth', 50)
 # Show latest listings
 url = config.sandbox_latest_quotes
 parameters = {
-  'slug':'bitcoin,ethereum,chainlink',
+  'slug':'bitcoin,ethereum,chainlink,polkadot,cardano',
   'convert':'USD'
 }
 
@@ -49,6 +49,8 @@ try:
   df_btc = df.loc[['bitcoin'], core_info]
   df_eth = df.loc[['ethereum'], core_info]
   df_link = df.loc[['chainlink'], core_info]
+  df_dot = df.loc[['polkadot'], core_info]
+  df_ada = df.loc[['cardano'], core_info]
 
   df_chart1 = df.loc[:, ['24h Change (%)']]
   
