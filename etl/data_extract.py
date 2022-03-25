@@ -4,7 +4,8 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import pandas as pd
 import pprint as pp
-from etl import config
+#from etl import config
+import config
 
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_colwidth', 50)
@@ -53,6 +54,8 @@ try:
   df_ada = df.loc[['cardano'], core_info]
 
   df_chart1 = df.loc[:, ['24h Change (%)']]
+
+  print(df.columns)
   
   # Load to destination
   #df.to_csv('cmc_dataframe.csv', index=False)
