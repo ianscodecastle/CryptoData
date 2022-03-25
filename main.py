@@ -2,7 +2,6 @@ import imp
 from nbformat import write
 import streamlit as st
 from PIL import Image
-import urllib3
 from etl import data_extract
 from urllib.request import urlopen
 
