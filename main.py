@@ -12,6 +12,7 @@ dot_logo = Image.open(urlopen('https://s2.coinmarketcap.com/static/img/coins/64x
 ada_logo = Image.open(urlopen('https://s2.coinmarketcap.com/static/img/coins/64x64/2010.png'))
 
 header_image = Image.open(urlopen('https://images.ctfassets.net/0idwgenf7ije/6OUAGu0C76BTCRaJ9t9rs7/9bcfc6d0ae3c0247a2d1b87157f964a3/Gemini-Non-Fungible_Token-_One_of_a_Kind_Assets_for_Collectibles_and_Rare_Items.png?fm=webp'))
+#header_image2 = Image.open(urlopen('https://images.ctfassets.net/0idwgenf7ije/6X87du1QI3CqHWKgTtCeKS/f075ac8d834dba7c46615b8d0c79f23e/Gemini-Defi_Ethereum_A_Guide_to_the_global_supercomputer.png?fm=webp'))
 
 st.image(header_image)
 st.title('Crypto Prices Today')
