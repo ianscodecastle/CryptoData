@@ -4,7 +4,7 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import pandas as pd
 import pprint as pp
-import config
+from etl import config
 
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_colwidth', 50)
