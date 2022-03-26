@@ -38,23 +38,24 @@ try:
   # Display dataframe
   #display(df)
   df.rename(columns={'name': 'NAME', 'quote.USD.price':'Price (USD)','quote.USD.percent_change_24h':'24h Change (%)', 'quote.USD.percent_change_7d':'7d Change (%)', 'quote.USD.market_cap':'Market Cap (USD)'}, inplace=True)
-  print(df)
 
   # Create views
   df_view1 = df[['slug', 'Price (USD)']] # all rows, specific columns
-  print(df_view1)
 
   core_info = ['Price (USD)','24h Change (%)','7d Change (%)','Market Cap (USD)']
-
   df_btc = df.loc[['bitcoin'], core_info]
   df_eth = df.loc[['ethereum'], core_info]
   df_link = df.loc[['chainlink'], core_info]
   df_dot = df.loc[['polkadot'], core_info]
   df_ada = df.loc[['cardano'], core_info]
 
-  df_chart1 = df.loc[:, ['24h Change (%)']]
+  movers_24h = df.loc[:,['24h Change (%)']]
+  movers_7d = df.loc[:,['7d Change (%)']]
 
+  mkd = df.loc[:,['quote.USD.market_cap_dominance']]
+  print(mkd)
   print(df.columns)
+
   
   # Load to destination
   #df.to_csv('cmc_dataframe.csv', index=False)

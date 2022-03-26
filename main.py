@@ -28,22 +28,32 @@ if option == 'Bitcoin':
     st.image(btc_logo)
     st.subheader('Bitcoin ($)')
     st.table(data_extract.df_btc)
+    st.subheader('Biggest Movers Today')
+    st.bar_chart(data_extract.movers_24h)
+    st.subheader('Biggest Movers This Week')
+    st.bar_chart(data_extract.movers_7d)
+    st.area_chart(data_extract.mkd)
+
 elif option == 'Ethereum': 
     st.image(eth_logo)
     st.subheader('Ethereum ($)')
     st.table(data_extract.df_eth)
+
 elif option == 'Chainlink': 
     st.image(link_logo)
     st.subheader('Chainlink ($)')
     st.table(data_extract.df_link)
+
 elif option == 'Polkadot': 
     st.image(dot_logo)
     st.subheader('Polkadot ($)')
     st.table(data_extract.df_ada)
+
 elif option == 'Cardano': 
     st.image(ada_logo)
     st.subheader('Cardano ($)')
     st.table(data_extract.df_link)
+
 elif option == 'Show All':
     st.subheader('Change Over 24HR')
     st.bar_chart(data_extract.df_chart1)
