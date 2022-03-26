@@ -3,9 +3,8 @@ from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import pandas as pd
-import pprint as pp
-#from etl import config
-import config
+#import config # Use this import when running data_extract, comment out when running main
+from etl import config # Use this import when running main, comment out when running data_extract
 
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_colwidth', 50)
