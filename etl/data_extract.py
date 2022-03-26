@@ -37,7 +37,7 @@ try:
 
   # Display dataframe
   #display(df)
-  df.rename(columns={'name': 'NAME', 'quote.USD.price':'Price (USD)','quote.USD.percent_change_24h':'24h Change (%)', 'quote.USD.percent_change_7d':'7d Change (%)', 'quote.USD.market_cap':'Market Cap (USD)'}, inplace=True)
+  df.rename(columns={'name': 'NAME', 'quote.USD.price':'Price (USD)','quote.USD.percent_change_24h':'24h Change (%)', 'quote.USD.percent_change_7d':'7d Change (%)', 'quote.USD.market_cap':'Market Cap (USD)', 'quote.USD.market_cap_dominance':'Market Cap Dominance'}, inplace=True)
 
   # Create views
   df_view1 = df[['slug', 'Price (USD)']] # all rows, specific columns
@@ -52,10 +52,9 @@ try:
   movers_24h = df.loc[:,['24h Change (%)']]
   movers_7d = df.loc[:,['7d Change (%)']]
 
-  mkd = df.loc[:,['quote.USD.market_cap_dominance']]
+  mkd = df.loc[:,['Market Cap Dominance']]
   print(mkd)
   print(df.columns)
-
   
   # Load to destination
   #df.to_csv('cmc_dataframe.csv', index=False)

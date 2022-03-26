@@ -1,3 +1,4 @@
+import string
 from nbformat import write
 import streamlit as st
 from PIL import Image
@@ -21,39 +22,60 @@ st.write("")
 
 option = st.selectbox(
      'Select:',
-     ('Bitcoin', 'Ethereum', 'Chainlink', 'Polkadot', 'Cardano', 'Show All'))
+     ('Show All', 'Bitcoin', 'Ethereum', 'Chainlink', 'Polkadot', 'Cardano', 'Trends'))
 st.write("\n\n")
 
-if option == 'Bitcoin':
+if option == 'Show All':
     st.image(btc_logo)
-    st.subheader('Bitcoin ($)')
+    st.subheader('Bitcoin (BTC)')
     st.table(data_extract.df_btc)
-    st.subheader('Biggest Movers Today')
-    st.bar_chart(data_extract.movers_24h)
-    st.subheader('Biggest Movers This Week')
-    st.bar_chart(data_extract.movers_7d)
-    st.area_chart(data_extract.mkd)
+
+    st.image(eth_logo)
+    st.subheader('Ethereum (ETH)')
+    st.table(data_extract.df_eth)
+
+    st.image(link_logo)
+    st.subheader('Chainlink (LINK)')
+    st.table(data_extract.df_link)
+
+    st.image(dot_logo)
+    st.subheader('Polkadot (DOT)')
+    st.table(data_extract.df_dot)
+
+    st.image(ada_logo)
+    st.subheader('Cardano (ADA)')
+    st.table(data_extract.df_ada)
+
+
+elif option == 'Bitcoin':
+    st.image(btc_logo)
+    st.subheader('Bitcoin (BTC)')
+    st.table(data_extract.df_btc)
 
 elif option == 'Ethereum': 
     st.image(eth_logo)
-    st.subheader('Ethereum ($)')
+    st.subheader('Ethereum (ETH)')
     st.table(data_extract.df_eth)
 
 elif option == 'Chainlink': 
     st.image(link_logo)
-    st.subheader('Chainlink ($)')
+    st.subheader('Chainlink (LINK)')
     st.table(data_extract.df_link)
 
 elif option == 'Polkadot': 
     st.image(dot_logo)
-    st.subheader('Polkadot ($)')
-    st.table(data_extract.df_ada)
+    st.subheader('Polkadot (DOT)')
+    st.table(data_extract.df_dot)
 
 elif option == 'Cardano': 
     st.image(ada_logo)
-    st.subheader('Cardano ($)')
-    st.table(data_extract.df_link)
+    st.subheader('Cardano (ADA)')
+    st.table(data_extract.df_ada)
 
-elif option == 'Show All':
-    st.subheader('Change Over 24HR')
-    st.bar_chart(data_extract.df_chart1)
+elif option == 'Trends':
+    st.subheader('Biggest Movers Today')
+    st.bar_chart(data_extract.movers_24h)
+    st.subheader('Biggest Movers This Week')
+    st.bar_chart(data_extract.movers_7d)
+    st.subheader('Market Cap Dominance')
+    st.area_chart(data_extract.mkd)
