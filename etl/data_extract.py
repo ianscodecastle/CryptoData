@@ -3,8 +3,8 @@ from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import pandas as pd
-import pprint as pp
-import config
+#import config # Use this import when running data_extract, comment out when running main
+from etl import config # Use this import when running main, comment out when running data_extract
 
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_colwidth', 50)
@@ -12,7 +12,7 @@ pd.set_option('display.max_colwidth', 50)
 # Show latest listings
 url = config.sandbox_latest_quotes
 parameters = {
-  'slug':'bitcoin,ethereum,chainlink',
+  'slug':'bitcoin,ethereum,chainlink,polkadot,cardano',
   'convert':'USD'
 }
 
@@ -37,20 +37,24 @@ try:
 
   # Display dataframe
   #display(df)
-  df.rename(columns={'name': 'NAME', 'quote.USD.price':'Price (USD)','quote.USD.percent_change_24h':'24h Change (%)', 'quote.USD.percent_change_7d':'7d Change (%)', 'quote.USD.market_cap':'Market Cap (USD)'}, inplace=True)
-  print(df)
+  df.rename(columns={'name': 'NAME', 'quote.USD.price':'Price (USD)','quote.USD.percent_change_24h':'24h Change (%)', 'quote.USD.percent_change_7d':'7d Change (%)', 'quote.USD.market_cap':'Market Cap (USD)', 'quote.USD.market_cap_dominance':'Market Cap Dominance'}, inplace=True)
 
   # Create views
   df_view1 = df[['slug', 'Price (USD)']] # all rows, specific columns
-  print(df_view1)
 
   core_info = ['Price (USD)','24h Change (%)','7d Change (%)','Market Cap (USD)']
-
   df_btc = df.loc[['bitcoin'], core_info]
   df_eth = df.loc[['ethereum'], core_info]
   df_link = df.loc[['chainlink'], core_info]
+  df_dot = df.loc[['polkadot'], core_info]
+  df_ada = df.loc[['cardano'], core_info]
 
-  df_chart1 = df.loc[:, ['24h Change (%)']]
+  movers_24h = df.loc[:,['24h Change (%)']]
+  movers_7d = df.loc[:,['7d Change (%)']]
+
+  mkd = df.loc[:,['Market Cap Dominance']]
+  print(mkd)
+  print(df.columns)
   
   # Load to destination
   #df.to_csv('cmc_dataframe.csv', index=False)
