@@ -1,0 +1,7 @@
+
+# Progress Report 3 (4/1/22)
+
+I am happy to say that I have made a lot of progress since my last progress report. In the past few weeks, I successfully made a data pipeline that extracts data using CoinMarketCap's API, transformed the data into a dataframe using pandas, and loaded the data onto a Streamlit dashboard. 
+After doing more research on how ETL works and what tools can be used to do ETL in Python, I decided to use Pandas. This allowed me to transform the raw json data that I was pulling from the API into clean, readable dataframes. From here, I just needed to load the data onto my dashboard. I am using Streamlit to make the dashboard because of how it lets users import streamlit commands directly into an IDE and write commands to build UI elements inside a Python file. This let me create a dashboard to show my data without having to invest a ton of time into building the front-end from scratch. Additonally, I created a git startegy for my repository. I now have a dev branch where I can experiemnt with different things, and a prod branch where the stable of the code lives.
+
+I am nearly done with my project now. The only things left for me to do are make small changes to the code and finish deploying the app to a production environment. Also, I made a screenshots folder with pictures of the dashboard in it.
