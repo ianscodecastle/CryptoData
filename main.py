@@ -9,7 +9,7 @@ from PIL import Image
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 from assets import images
-from etl import config, data_extract
+from etl import config, data_extract, coin_info
 
 def buildHeader():
     st.image(images.header_image)
@@ -48,6 +48,8 @@ def buildPages():
         st.image(images.btc_logo)
         st.subheader('Bitcoin (BTC)')
         st.table(data_extract.df_btc)
+        st.subheader('About Bitcoin:')
+        st.write(coin_info.df_btc)
 
     elif option == 'Ethereum': 
         st.image(images.eth_logo)
