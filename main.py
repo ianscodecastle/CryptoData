@@ -2,6 +2,7 @@
 import json
 import string
 from urllib.request import urlopen
+from xml.etree.ElementTree import tostring
 import pandas as pd
 import streamlit as st
 from nbformat import write
@@ -49,7 +50,8 @@ def buildPages():
         st.subheader('Bitcoin (BTC)')
         st.table(data_extract.df_btc)
         st.subheader('About Bitcoin:')
-        st.write(coin_info.df_btc)
+        st.write(coin_info.btc_desc)
+        st.write('[Source Code](https://github.com/bitcoin/bitcoin) | [Tecnical Docs](https://bitcoin.org/bitcoin.pdf) | [Twitter](https://twitter.com/bitcoin?lang=en) | [Reddit](https://www.reddit.com/r/Bitcoin/)')
 
     elif option == 'Ethereum': 
         st.image(images.eth_logo)

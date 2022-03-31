@@ -1,3 +1,4 @@
+from xxlimited import Str
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
@@ -34,17 +35,19 @@ try:
 
 
   description = ['Description']
-  btc_desc = df.loc[[0], description]
-  print(btc_desc)
+  #btc_desc = df.loc[[0], description]
+  
 
   core_info = ['Description','Website', 'Source Code','Technical Docs','Date Launched', 'Twitter', 'Reddit', 'Tags', 'Category']
+
   df_btc = df.loc[[0], core_info]
+  btc_desc = df_btc.iat[0,0]
+
   df_eth = df.loc[[1], core_info]
   df_link = df.loc[[2], core_info]
   df_dot = df.loc[[3], core_info]
   df_ada = df.loc[[4], core_info]
 
-  print(description)
 
 except (ConnectionError, Timeout, TooManyRedirects) as e:
   print(e)
