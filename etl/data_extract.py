@@ -37,14 +37,17 @@ try:
   df.rename(columns={'name': 'Name', 'quote.USD.price':'Price (USD)','quote.USD.percent_change_24h':'24h Change (%)', 'quote.USD.percent_change_7d':'7d Change (%)', 'quote.USD.market_cap':'Market Cap (USD)', 'quote.USD.market_cap_dominance':'Market Cap Dominance'}, inplace=True)
   df.set_index('Name', inplace=True)
 
-  # Create views
+  # Array of desired columns
   core_info = ['Price (USD)','24h Change (%)','7d Change (%)','Market Cap (USD)']
+
+  # Create dataframe views for each coin
   df_btc = df.loc[['Bitcoin'], core_info]
   df_eth = df.loc[['Ethereum'], core_info]
   df_link = df.loc[['Chainlink'], core_info]
   df_dot = df.loc[['Polkadot'], core_info]
   df_ada = df.loc[['Cardano'], core_info]
 
+  # Dataframe views for graph data
   movers_24h = df.loc[:,['24h Change (%)']]
   movers_7d = df.loc[:,['7d Change (%)']]
   mkd = df.loc[:,['Market Cap Dominance']]

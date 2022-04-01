@@ -3,6 +3,8 @@ import streamlit as st
 from assets import images
 from etl import data_extract, coin_info
 
+# Spin up the dashboard using <streamlit run main.py> in terminal
+
 def buildHeader():
     st.image(images.header_image)
     st.title('Crypto Prices Today')
