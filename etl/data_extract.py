@@ -6,10 +6,7 @@ import pandas as pd
 #import config # Use this import when running data_extract, comment out when running main
 from etl import config # Use this import when running main, comment out when running data_extract
 
-pd.set_option('display.max_columns', None)
-pd.set_option('display.max_colwidth', 50)
-
-# Show latest listings
+# Show latest quotes
 url = config.sandbox_latest_quotes
 parameters = {
   'slug':'bitcoin,ethereum,chainlink,polkadot,cardano',
@@ -35,13 +32,10 @@ try:
   df = pd.json_normalize(list(data.values()))
   df.index = data.keys()
 
-  # Display dataframe
-  #display(df)
+  # Rename columns
   df.rename(columns={'name': 'NAME', 'quote.USD.price':'Price (USD)','quote.USD.percent_change_24h':'24h Change (%)', 'quote.USD.percent_change_7d':'7d Change (%)', 'quote.USD.market_cap':'Market Cap (USD)', 'quote.USD.market_cap_dominance':'Market Cap Dominance'}, inplace=True)
 
   # Create views
-  df_view1 = df[['slug', 'Price (USD)']] # all rows, specific columns
-
   core_info = ['Price (USD)','24h Change (%)','7d Change (%)','Market Cap (USD)']
   df_btc = df.loc[['bitcoin'], core_info]
   df_eth = df.loc[['ethereum'], core_info]
@@ -51,13 +45,7 @@ try:
 
   movers_24h = df.loc[:,['24h Change (%)']]
   movers_7d = df.loc[:,['7d Change (%)']]
-
   mkd = df.loc[:,['Market Cap Dominance']]
-  print(mkd)
-  print(df.columns)
-  
-  # Load to destination
-  #df.to_csv('cmc_dataframe.csv', index=False)
 
 except (ConnectionError, Timeout, TooManyRedirects) as e:
   print(e)
