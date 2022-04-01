@@ -1,13 +1,5 @@
 # imports
-import json
-import string
-from urllib.request import urlopen
-import pandas as pd
 import streamlit as st
-from nbformat import write
-from PIL import Image
-from requests import Request, Session
-from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 from assets import images
 from etl import data_extract, coin_info
 

@@ -7,7 +7,7 @@ import pandas as pd
 from etl import config # Use this import when running main, comment out when running data_extract
 
 # Show latest quotes
-url = config.sandbox_latest_quotes
+url = config.pro_latest_quotes
 parameters = {
   'slug':'bitcoin,ethereum,chainlink,polkadot,cardano',
   'convert':'USD'
@@ -15,7 +15,7 @@ parameters = {
 
 headers = {
   'Accepts': 'application/json',
-  'X-CMC_PRO_API_KEY': config.sandbox_key,
+  'X-CMC_PRO_API_KEY': config.my_key,
 }
 
 session = Session()
@@ -30,18 +30,20 @@ try:
   # Make data frame
   df = pd.DataFrame(data).T
   df = pd.json_normalize(list(data.values()))
-  df.index = data.keys()
+  # df.index = data.keys()
+
 
   # Rename columns
-  df.rename(columns={'name': 'NAME', 'quote.USD.price':'Price (USD)','quote.USD.percent_change_24h':'24h Change (%)', 'quote.USD.percent_change_7d':'7d Change (%)', 'quote.USD.market_cap':'Market Cap (USD)', 'quote.USD.market_cap_dominance':'Market Cap Dominance'}, inplace=True)
+  df.rename(columns={'name': 'Name', 'quote.USD.price':'Price (USD)','quote.USD.percent_change_24h':'24h Change (%)', 'quote.USD.percent_change_7d':'7d Change (%)', 'quote.USD.market_cap':'Market Cap (USD)', 'quote.USD.market_cap_dominance':'Market Cap Dominance'}, inplace=True)
+  df.set_index('Name', inplace=True)
 
   # Create views
   core_info = ['Price (USD)','24h Change (%)','7d Change (%)','Market Cap (USD)']
-  df_btc = df.loc[['bitcoin'], core_info]
-  df_eth = df.loc[['ethereum'], core_info]
-  df_link = df.loc[['chainlink'], core_info]
-  df_dot = df.loc[['polkadot'], core_info]
-  df_ada = df.loc[['cardano'], core_info]
+  df_btc = df.loc[['Bitcoin'], core_info]
+  df_eth = df.loc[['Ethereum'], core_info]
+  df_link = df.loc[['Chainlink'], core_info]
+  df_dot = df.loc[['Polkadot'], core_info]
+  df_ada = df.loc[['Cardano'], core_info]
 
   movers_24h = df.loc[:,['24h Change (%)']]
   movers_7d = df.loc[:,['7d Change (%)']]
