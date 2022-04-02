@@ -35,6 +35,8 @@ try:
 
   # Rename columns
   df.rename(columns={'name': 'Name', 'quote.USD.price':'Price (USD)','quote.USD.percent_change_24h':'24h Change (%)', 'quote.USD.percent_change_7d':'7d Change (%)', 'quote.USD.market_cap':'Market Cap (USD)', 'quote.USD.market_cap_dominance':'Market Cap Dominance'}, inplace=True)
+  
+  # Set dataframe index
   df.set_index('Name', inplace=True)
 
   # Array of desired columns
