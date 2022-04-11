@@ -1,0 +1,4 @@
+
+# Progress Report 4 (4/8/22)
+
+I have finished my project and am happy with the work I've done to this point. The only changes I needed to make from the last progress report to now have been refactoring the code to make it cleaner and more readable. To accomplish this, I created seperate python files for each data pipeline, the ui elements in the dashboard, and a main class that calls all the methods to pull everything together. I also added comments to identify all the different moving parts in the ETL process. Additionally, I subbed out the dummy data I was using for testing with the actual up-to-date data from the API to finish the dashboard.
